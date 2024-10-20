@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: default-nginx
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: default-nginx
+  template:
+    metadata:
+      labels:
+        app: default-nginx
+    spec:
+      containers:
+      - image: nginx:1.26.2
+        name: default-nginx
+        
